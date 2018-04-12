@@ -3,5 +3,5 @@ image: docker
 git:
   script:
     - apk update && apk add git
-    - git remote add origin https://github.com/MaFeg100/mirror.git
-    - git remote -v
+    - git remote add origin https://github.com/MaFeg100/mirror.git || true
+    - git remote -v || true
