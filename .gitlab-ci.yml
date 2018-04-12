@@ -6,3 +6,5 @@ git:
     - git status
     - git branch
     - echo $CI_COMMIT_REF_NAME
+    - git remote set-url --add origin https://github.com/MaFeg100/mirror.git
+    - git status
