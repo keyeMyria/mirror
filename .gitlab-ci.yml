@@ -2,4 +2,4 @@ image: docker
 
 git:
   script:
-    - git status
+    - 'git status'
