@@ -4,3 +4,4 @@ git:
   script:
     - apk update && apk add git
     - git status
+    - git branch
