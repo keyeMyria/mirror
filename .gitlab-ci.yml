@@ -2,4 +2,5 @@ image: docker
 
 git:
   script:
-    - 'git status'
+    - apk update && apk add git
+    - git status
