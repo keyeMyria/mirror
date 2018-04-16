@@ -30,7 +30,7 @@ git:
   script:
     - apk update && apk add git
     - echo $CI_COMMIT_REF_NAME
-    - git push -u https://MaFeg100:$CI_SECRET@github.com/MaFeg100/mirror.git $CI_COMMIT_REF_NAME -f
+    - git push -u https://MaFeg100:$CI_SECRET@github.com/MaFeg100/mirror.git $CI_COMMIT_REF_NAME -f || true
 
 build_test_images:
   stage: build
