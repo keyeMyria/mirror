@@ -28,6 +28,7 @@ image: docker
     - apk update && apk add git
     - git checkout $CI_COMMIT_REF_NAME
     - git push -u https://MaFeg100:$CI_SECRET@github.com/MaFeg100/mirror.git $CI_COMMIT_REF_NAME -f
+    - echo "Coconut-Mensch"
 # ------------------------------------------------------------------------------
 # Job definitions
 
