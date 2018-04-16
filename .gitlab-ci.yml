@@ -111,6 +111,7 @@ deploy_dev_image:
     - docker build -t $CI_REGISTRY_IMAGE/db --pull docker/db
     - docker tag $CI_REGISTRY_IMAGE/db $CI_REGISTRY_IMAGE/db:development
     - docker push $CI_REGISTRY_IMAGE/db:development
+    <<: *publish-on-github
   only:
     - development
 
