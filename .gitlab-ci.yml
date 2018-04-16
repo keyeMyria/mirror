@@ -113,8 +113,7 @@ deploy_dev_image:
     - docker push $CI_REGISTRY_IMAGE/db:development
   only:
     - development
-  after_script:
-    <<: *publish-on-github
+  <<: *publish-on-github
 
 deploy_docs_image:
   stage: deploy
