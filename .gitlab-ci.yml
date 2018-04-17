@@ -23,18 +23,6 @@ image: docker
   before_script:
     - alembic upgrade head && pserve development.ini --reload &
 
-.job-template: &publish-on-github
-  script:
-    - apk update && apk add git
-    - git checkout $CI_COMMIT_REF_NAME
-    - git add --all
-    - git push -u https://MaFeg100:$CI_SECRET@github.com/MaFeg100/mirror.git $CI_COMMIT_REF_NAME -f
-
-
-# Job definitions
-
-git:
-  <<: *publish-on-github
 
 build_test_images:
   stage: build
@@ -113,7 +101,6 @@ deploy_dev_image:
     - docker push $CI_REGISTRY_IMAGE/db:development
   only:
     - development
-  <<: *publish-on-github
 
 deploy_docs_image:
   stage: deploy
@@ -124,3 +111,14 @@ deploy_docs_image:
     - docker push $CI_REGISTRY_IMAGE:docs
   only:
     - master
+
+mirror-github:
+  stage: deploy
+  script:
+    - apk --no-cache add git
+    - git checkout $CI_COMMIT_REF_NAME
+    - git add --all
+    - git push -u https://MaFeg100:$CI_SECRET@github.com/MaFeg100/mirror.git $CI_COMMIT_REF_NAME -f
+  only:
+    - master
+    - development
