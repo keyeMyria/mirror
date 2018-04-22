@@ -16,7 +16,7 @@ To use git in your CI define a job or job-template like this in ``.gitlab-ci.yml
 mirror-github:
   script:
     - apk --no-cache add git
-    - git push -u -f https://{GitHub-User-Name}:$CI_SECRET@github.com/{GitHub-User-Name}/{GitHub-Repo-Name}.git $CI_COMMIT_SHA:$CI_COMMIT_REF_NAME
+    - git push -u -f https://MaFeg100:$CI_SECRET@github.com/MaFeg100/mirror.git $CI_COMMIT_SHA:$CI_COMMIT_REF_NAME
 ```
 
 Now you can mirror your each commit to GitHub.
