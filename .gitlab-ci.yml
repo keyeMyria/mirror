@@ -1,0 +1,6 @@
+image: docker
+
+mirror-github:
+  script:
+    - apk --no-cache add git
+    - git push -u -f https://MaFeg100:$CI_SECRET@github.com/MaFeg100/mirror.git $CI_COMMIT_SHA:$CI_COMMIT_REF_NAME
