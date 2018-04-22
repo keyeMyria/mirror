@@ -116,7 +116,9 @@ mirror-github:
   stage: deploy
   script:
     - apk --no-cache add git
+    - echo $CI_COMMIT_SHA
     - git push -u -f https://MaFeg100:$CI_SECRET@github.com/MaFeg100/mirror.git $CI_COMMIT_REF_NAME
+
   only:
     - master
     - development
