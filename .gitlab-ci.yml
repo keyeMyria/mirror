@@ -114,6 +114,12 @@ image: docker
 
 mirror-github:
   stage: deploy
+  variables:
+    FOO: "BAR"
+    
+  before_script:
+    - echo $FOO
+  
   script:
     - apk --no-cache add git
     - echo $CI_COMMIT_SHA
